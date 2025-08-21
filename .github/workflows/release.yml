@@ -24,6 +24,10 @@ jobs:
           pacman -Syu --noconfirm
           # This package only needs 'make', which is in base-devel
           pacman -S --noconfirm --needed base-devel
+          
+      - name: Install dependencies
+        run: |
+            sudo -S pacman -Syu --noconfirm python libinput hicolor-icon-theme
 
       - name: Set correct permissions
         run: |
