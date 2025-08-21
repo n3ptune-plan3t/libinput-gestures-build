@@ -3,7 +3,7 @@ name: Build and Release libinput-gestures
 on:
   push:
     tags:
-      - '*'
+      - 'v*'
   workflow_dispatch:
 
 jobs:
@@ -42,13 +42,13 @@ jobs:
           path: "*.pkg.tar.zst"
 
   release:
-    name: Create GitHub Release
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+      name: Create GitHub Release
+      needs: build
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
 
-    steps:
+      steps:
       - name: Download built package from artifact
         uses: actions/download-artifact@v4
         with:
